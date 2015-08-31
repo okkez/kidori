@@ -1,0 +1,35 @@
+{
+  "repos": [
+    {
+      "url": "https://github.com/borisyankov/DefinitelyTyped.git",
+      "ref": "master"
+    }
+  ],
+  "path": "typings",
+  "bundle": "typings/bundle.d.ts",
+  "link": {
+    "npm": {
+      "include": true
+    }
+  },
+  "dependencies": {
+    "angularjs/angular.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    },
+    "jquery/jquery.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    },
+    "moment/moment.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    },
+    "toastr/toastr.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    },
+    "angularjs/angular-route.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    },
+    "angularjs/angular-resource.d.ts": {
+      "ref": "3b0f362204ea965952dafdb682a5274d527ef9d0"
+    }
+  }
+}

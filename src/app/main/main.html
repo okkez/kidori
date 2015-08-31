@@ -1,0 +1,63 @@
+<div class="container-fluid">
+
+  <div class="col-md-3">
+    <p>単位は全てミリメートル(mm)です。</p>
+
+    <form name="kidoriForm">
+      <fieldset>
+        <legend>板材のサイズ</legend>
+        <div class="row">
+        <label for="depth">奥行: </label>
+        <input id="depth" type="number" ng-model="main.depth">
+        <label for="width">長さ: </label>
+        <input id="width" type="number" ng-model="main.width">
+        </div>
+        <div class="row">
+        <label for="nokogiri">鋸の厚さ: </label>
+        <input id="nokogiri" type="number" ng-model="main.nokogiri">
+        <label for="scale">スケール: </label>
+        <input id="scale" type="number" ng-model="main.scale" step="0.1" min="0.1" max="1.0" size="3">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>切り出す板のサイズ</legend>
+        <div class="row">
+          <button type="button" ng-click="main.append()">+</button>
+          <button type="button" ng-click="main.copy()">Copy</button>
+        </div>
+        <table>
+          <thead>
+            <td>N</td>
+            <td>奥行</td>
+            <td>横幅</td>
+            <td></td>
+          </thead>
+          <tbody>
+            <tr ng-repeat="board in main.boards track by $index">
+              <td>{{ $index + 1 }}:</td>
+              <td><input id="depth-{{ board.id }}" type="number" ng-model="board.depth"></td>
+              <td><input id="width-{{ board.id }}" type="number" ng-model="board.width"></td>
+              <td>
+                <button type="button" ng-disabled="$first && main.boards.length === 1" ng-click="main.delete($index)">-</button>
+                <button type="button" ng-disabled="$first" ng-click="main.up($index)">↑</button>
+                <button type="button" ng-disabled="$last" ng-click="main.down($index)">↓</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+      <div class="row">
+        <button type="button" ng-click="main.render()">描画</button>
+        <button type="button" ng-click="main.download()">ダウンロード</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-9">
+    <canvas id="board"
+            width="{{ main.getDepth() + main.paddingX * 2 }}"
+            height="{{ main.getWidth() + main.paddingY * 2 }}">
+    </canvas>
+  </div>
+
+</div>
