@@ -91,8 +91,18 @@ module kidori {
                            yOffset,
                            board.depth * this.scale,
                            board.width * this.scale);
+        context.lineWidth = 0.5;
+        context.strokeStyle = 'black';
+        context.strokeText(board.depth.toString(),
+                           xOffset + (board.depth * this.scale) / 2,
+                           yOffset);
+        context.strokeText(board.width.toString(),
+                           xOffset,
+                           yOffset + (board.width * this.scale) / 2);
         xList.push(board.depth);
         yOffset += (board.width + this.nokogiri) * this.scale;
+        context.lineWidth = 1.0;
+        context.strokeStyle = 'red';
       });
       context.restore();
     }
